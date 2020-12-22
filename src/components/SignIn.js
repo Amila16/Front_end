@@ -1,10 +1,7 @@
 import React from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBFooter } from 'mdbreact';
 import axios from 'axios';
-
-
-
-
+//import { toast } from "react-toastify";
 
 class Login extends React.Component {
 

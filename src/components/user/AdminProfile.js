@@ -5,7 +5,7 @@ import {
     MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, 
     MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
     } from "mdbreact";
-//import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 class AdminProfile extends React.Component {
 
@@ -14,7 +14,8 @@ class AdminProfile extends React.Component {
         newdocument: {
           title: "",
           file: null
-        }
+        },
+        newusers:[]
       };
       
     toggleCollapse = () => {
@@ -42,7 +43,9 @@ class AdminProfile extends React.Component {
             file: null
           }
         });
-       
+        toast.success("Document Successfully uploaded!", {
+          position: toast.POSITION.TOP_CENTER
+        });
      // } catch (error) {
      //   if (error.response && error.response.status === 400) {
      //     this.setState({ ...this.state, uploaderror: error.response.data });
@@ -74,9 +77,22 @@ class AdminProfile extends React.Component {
         console.log(newdocument.file)
       this.setState({ ...this.state, newdocument });
      // let files=e.target.files;
+     toast.success("Document Successfully uploaded!", {
+      position: toast.POSITION.TOP_CENTER
+     });
         console.log("upload data file")
         console.log(this.state.newdocument.file)
     }
+
+    getnewstudents=()=>{
+       axios.post('http://localhost:5000/getnewusers',this.state)
+      .then(response=>{
+        console.log(response.data[0])
+      });
+      //this.setState({ newusers });
+        console.log(this.state.newusers  )
+    }
+
 
     render(){
       return(
@@ -88,8 +104,8 @@ class AdminProfile extends React.Component {
            <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
            <MDBNavbarNav left>
                        
-            <MDBNavItem>
-              <MDBNavLink to="/features">Features</MDBNavLink>
+            <MDBNavItem onClick={this.getnewstudents}>
+              <MDBNavLink to="/newstudents">newStudents</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
               <MDBNavLink to="#!">Pricing</MDBNavLink>
@@ -97,13 +113,13 @@ class AdminProfile extends React.Component {
             <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle nav caret>
-                  <span className="mr-2">Dropdown</span>
+                  <span className="mr-2">Students</span>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
-                  <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
+                  <MDBDropdownItem href="#!">Individual</MDBDropdownItem>
+                  <MDBDropdownItem href="#!">Group</MDBDropdownItem>
+                  <MDBDropdownItem href="#!">Common</MDBDropdownItem>
+                  
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavItem>

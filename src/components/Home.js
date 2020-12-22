@@ -67,8 +67,8 @@ render() {
      </header> 
 
      <div style={{marginBottom:"50px"}}>
-        <h1 style={{textAlign:"center",fontFamily:"arial",marginTop:"80px",fontSize:150,color:"orange"}}>MATHS</h1>
-        <h1 style={{textAlign:"center",fontFamily:"arial",fontSize:50,color:"orange"}}>FOR BEGINNERS</h1>
+        <h1 style={{textAlign:"center",fontFamily:"arial",marginTop:"80px",fontSize:150,color:"orange"}}>COMBIND MATHS</h1>
+        <h1 style={{textAlign:"center",fontFamily:"arial",fontSize:50,color:"orange"}}>FOR A/L STUDENTS</h1>
      </div>
 
      
@@ -104,9 +104,7 @@ render() {
         </MDBRow>
       </MDBContainer>
       <div className="footer-copyright text-center py-3">
-        <MDBContainer fluid>
-          &copy; {new Date().getFullYear()} Copyright: <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
-        </MDBContainer>
+        
       </div>
     </MDBFooter>
 

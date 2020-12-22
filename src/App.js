@@ -2,13 +2,12 @@ import React from 'react';
 import Login from './components/SignIn';
 import Register from './components/signUp';
 import Home from './components/Home';
-//import Features from './components/Features';
+import Newstudents from './components/Newstudents';
 import Aboutme from './components/Aboutme';
 import AdminProfile from './components/user/AdminProfile';
 //import { Router, Route, Switch } from "react-router";
 import { BrowserRouter, Route} from 'react-router-dom';
 
-//<Route path="/features" component={Features} />
 
 class App extends React.Component {
   render(){
@@ -19,7 +18,7 @@ class App extends React.Component {
               <Route path="/login" component={Login} />
               <Route exact path="/" component={Home} />
               <Route path="/register" component={Register} />
-              
+              <Route path="/newstudents" component={Newstudents} />
               <Route path="/aboutme" component={Aboutme}/>
               <Route path="/Adminprofile" component={AdminProfile}/>
           </div>
